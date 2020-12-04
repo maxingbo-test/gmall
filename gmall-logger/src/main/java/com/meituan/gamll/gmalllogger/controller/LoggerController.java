@@ -12,7 +12,7 @@ public class LoggerController {
     @RequestMapping(value = "/applog")
     public String applog(@RequestBody String logString){
 
-        // 日志清洗....1
+        // 日志清洗....12
 
         // 日志输出
         log.info("info:{}-{}",logString,"1");
