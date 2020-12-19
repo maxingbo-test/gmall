@@ -37,4 +37,10 @@ public class PublisherController {
         rlist.add(_dauMap);
         return JSON.toJSONString(rlist);
     }
+
+    //访问路径 http://publisher:8070/realtime-hour?id=dau&date=2019-02-01
+    @RequestMapping(value = "")
+    public String getDauHour(@RequestParam("date") String dt){
+        return null;
+    }
 }
