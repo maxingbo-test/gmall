@@ -72,11 +72,11 @@ public class EsServiceImpl implements EsService {
                                             .build();
         try {
             SearchResult result = jestClient.execute(search);
-            if(result != null){
-                Map<String,Long> _map = new HashMap<>();
-                List<TermsAggregation.Entry> groupByHr = result.getAggregations()
-                                            .getTermsAggregation("group_by_hr")
-                                            .getBuckets();
+            Map<String,Long> _map = new HashMap<>();
+            TermsAggregation group_by_hr = result.getAggregations()
+                                           .getTermsAggregation("group_by_hr");
+            if(group_by_hr != null){
+                List<TermsAggregation.Entry> groupByHr = group_by_hr.getBuckets();
                 for (TermsAggregation.Entry bucket : groupByHr) {
                     _map.put(bucket.getKey(),bucket.getCount());
                 }
